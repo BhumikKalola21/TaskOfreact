@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-const TheDashboard = () => {
+const TheDashboard = (props) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
+        // console.log('hiii')
         fetch("https://jsonplaceholder.typicode.com/albums").then((result) => {
             result.json().then((resp) => {
                 setData(resp)
@@ -13,17 +14,17 @@ const TheDashboard = () => {
         <>
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
-                    <a className="navbar-brand">UserProfile</a>
+                    <h1 className="navbar-brand" >{props.email}</h1>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarText">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">UserName</a>
+                                <h1 className="nav-link active" aria-current="page" >UserName</h1>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Emailid</a>
+                                <h1 className="nav-link" >Emailid</h1>
                             </li>
                         </ul>
                         <a style={{ textDecoration: 'none' }} href="/">
@@ -34,7 +35,7 @@ const TheDashboard = () => {
             </nav>
             <table className="table m-auto">
                 <thead>
-                    <tr class="table-warning">
+                    <tr className="table-warning">
                         <th scope="col">Id</th>
                         <th scope="col">UserId</th>
                         <th scope="col">Title</th>
@@ -44,7 +45,7 @@ const TheDashboard = () => {
                 <tbody>
                     {
                         data.map((item) =>
-                            <tr class="table-info">
+                            <tr className="table-info" key={item.id}>
                                 <th scope="col">{item.id}</th>
                                 <th scope="col">{item.userId}</th>
                                 <th scope="col">{item.title}</th>
