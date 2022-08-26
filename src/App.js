@@ -17,19 +17,13 @@ function App() {
     };
     gapi.load('client:auth2', start)
   });
-
-
   return (
     <>
 
       <Routes>
         <Route path="/" element={< TheGoogle /> }/>
         <Route path="/dashboard" element={< TheDashboard /> }/>
-
       </Routes>
-
-
-
     </>
   );
 }

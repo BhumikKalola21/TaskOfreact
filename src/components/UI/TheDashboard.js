@@ -3,7 +3,6 @@ const TheDashboard = (props) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        // console.log('hiii')
         fetch("https://jsonplaceholder.typicode.com/albums").then((result) => {
             result.json().then((resp) => {
                 setData(resp)
@@ -49,7 +48,6 @@ const TheDashboard = (props) => {
                                 <th scope="col">{item.id}</th>
                                 <th scope="col">{item.userId}</th>
                                 <th scope="col">{item.title}</th>
-
                             </tr>
                         )
                     }
